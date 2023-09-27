@@ -1,65 +1,40 @@
-import { useState,useEffect } from "react"
-import SimpleCounter from "./SimpleCounter"
+import { useState } from "react"
+import { useCurrencyData } from "../hooks/currencyData"
+
 
 export const Dropdown = (props)=>{
 
-const [currecyData , setCurrencyData] = useState([])
-const [currecyDataRate , setCurrencyDataRate] = useState([])
-const [value, setValue] = useState('');
-const [value2, setValue2] = useState('');
+const [result, setResult] = useState()
+const [firstDropdownRateValue, setFirstDropdownRateValue] = useState()
+const [secondDropdownRateValue, setSecondDropdownRateValue] = useState()
 
-
+const {currecyData} = useCurrencyData()
 
 const handleChange = (event) => {
-
-  setValue(+(event.target.value))
-  console.log(event.target.value);
-  
-
-};
-const handleChange2 = (event) => {
-
-    setValue2(+(event.target.value));
-  
-  };
+  setFirstDropdownRateValue(event.target.value)
     
+}
 
-    const gettingData = async function (){
-        const response = await fetch('http://data.fixer.io/api/latest?access_key=416b9d4a8622014b57c02f65f6738909')
-        const data = await response.json()
-        // console.log(Object.keys(data.rates))
-        const {rates} = data
-        var allCurreny = []
-      
-        for (const [key, value] of Object.entries(rates)) {
-            allCurreny.push(key)    
-            setCurrencyData(prev => [...prev,[key, value]])    
-        }
-      
-        for (const curreny of allCurreny){
-            // setCurrencyData(prev => [...prev,curreny])
-            
-      }
-    }
+const handleChange2 = (event) => {
+    setSecondDropdownRateValue(event.target.value)
+}
 
-      useEffect(()=> {
-        gettingData()
-    }, [])
-
-    let countervalue=props.counter
+const handleSubmit = () =>{
+  setResult(props.counter / firstDropdownRateValue * secondDropdownRateValue)
+}
     
     return (
         <>
-            
-            <select value={value} onChange={handleChange}>
-                {currecyData.map((e, i)=> <option  value={e[1]} key={i}>{e[0]}</option>)}       
+            <select onChange={handleChange}>
+              {currecyData.map((e, i)=> 
+                <option  value={e[1]} key={i}>{e[0]}</option>)}       
             </select>
-            <select value2={value2} onChange={handleChange2}>
-                {currecyData.map((e, i)=> <option  value={e[1]} key={i}>{e[0]}</option>)}       
+            <select onChange={handleChange2}>
+              {currecyData.map((el, i)=> 
+                <option  value={el[1]} key={i}>{el[0]}</option>)}       
             </select>
-            {/* <h1>{value2} ...  </h1>
-            <h1>{value} </h1> */}
-            <h1>{countervalue / value * value2 }        </h1>
+            <button onClick={handleSubmit}>Submit</button>
+            <h1>{Number.isFinite(result) & result !== 0 ? Math.round(result * 1000) / 1000 : 'submit currency and amount'} </h1>
             
         </>
         
