@@ -1,16 +1,14 @@
-
 import './App.css';
-import { SimpleCounter } from './components/SimpleCounter';
-
+import { CurrencyCalculatorWCounter } from './components/CurrencyCalculatorWCounter';
+ 
 
 
 function App() {
-
   
   
   return (
     <div className="App">
-       <SimpleCounter />
+      <CurrencyCalculatorWCounter className="currency-box"/>
     </div>
   );
 }
