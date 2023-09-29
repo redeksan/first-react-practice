@@ -4,20 +4,40 @@
 
 .result-box{
   background: red;
-  /* width: 100% */
+  width: 20%;
 }
 .counter-box{
   background: green;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  
 }
+.counter-box > button {
+  color: red;
+  width: 40%;
+  align-self:flex-start;
+}
+.counter-box > p {
+  color: blue;
+  width: 20%;
+}
+
 .dropdown-box{
   background: yellow;
+  width: 60%;
+  align-self: center;
+  
+
 }
 .currency-calculator-box {
   background: blue;
   display: flex;
+  /* height: 100px; */
 }
 .currency-calculator-box > div {
-  width: 100%;
+  /* width: 100%; */
 }
 
 /* 
