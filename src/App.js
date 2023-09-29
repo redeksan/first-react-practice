@@ -1,8 +1,6 @@
-
 import './App.css';
-
-import { SimpleCounter } from './components/SimpleCounter';
-
+import { CurrencyCalculatorWCounter } from './components/CurrencyCalculatorWCounter';
+ 
 
 
 function App() {
@@ -10,9 +8,7 @@ function App() {
   
   return (
     <div className="App">
-       <SimpleCounter />
-       {/* <Dropdown /> */}
-      
+      <CurrencyCalculatorWCounter className="currency-box"/>
     </div>
   );
 }
