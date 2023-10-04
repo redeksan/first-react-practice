@@ -47,12 +47,13 @@ export const CurrencyCalculatorWCounter = () => {
                     <h2>Currency calculator</h2>
             </div>
             <div className="counter-box">
-                <div className="counter-box-header">
-                    <h4>Select amount</h4>
-                </div>                
+                              
                 <div className="counter-box-value">
                     <h4>{counter}</h4>
                 </div>
+                <div className="counter-box-header">
+                    <h4>Select amount</h4>
+                </div>      
                 <div className="counter-buttons-box">
                     <button onClick={() => updateCounter(10)}>+ 10</button>
                     <button onClick={() => updateCounter(1)}>+</button>
