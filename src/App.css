@@ -2,11 +2,101 @@
   text-align: center;
 }
 
-.result-box{
+
+
+.currency-calculator-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: 250px;
+  border: 1px solid green;
+  background-color: aliceblue;
+}
+
+.currency-calculator-box > * {
+  margin: auto;
+  flex: 1;
+  /* border: 1px solid black; */
+  
+}
+
+.currency-calculator-header > h2{
+  margin: auto;
+ }
+.currency-calculator-box > button {
+  color: yellow;
+}
+.counter-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  /* border: 1px solid red; */
+}
+
+.counter-box > * {
+  /* border: 1px solid blue; */
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: 0;
+}
+
+.counter-box > * > *{
+    margin: 0;
+}
+
+.counter-box-value > h4 {
+  background: red;
+  margin: auto;
+  max-width: 50%;
+  background: white;
+  border: 1px solid black;
+}
+
+
+
+.counter-buttons-box{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  /* background: #000; */
+}
+
+.counter-buttons-box > * {
+  /* flex: 1; */
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: 1;
+}
+
+.dropdown-box > * {
+  margin: 2px;
+}
+
+.dropdown-box > * > * {
+  margin: 2px;
+}
+
+.result-box {
+  margin: 2px;
+}
+.result-box > h2 {
+  
+  margin: auto;
+  max-width: 80%;
+  background: white;
+  border: 1px solid black;
+ 
+}
+/* .result-box{
   background: red;
   width: 20%;
-}
-.counter-box{
+} */
+
+
+
+
+/* .counter-box{
   background: green;
   width: 60%;
   display: flex;
@@ -14,11 +104,13 @@
   flex-wrap: wrap;
   
 }
+
 .counter-box > button {
   color: red;
   width: 40%;
   align-self:flex-start;
 }
+
 .counter-box > p {
   color: blue;
   width: 20%;
@@ -30,15 +122,9 @@
   align-self: center;
   
 
-}
-.currency-calculator-box {
-  background: blue;
-  display: flex;
-  /* height: 100px; */
-}
-.currency-calculator-box > div {
-  /* width: 100%; */
-}
+} */
+
+
 
 /* 
 .App-header {

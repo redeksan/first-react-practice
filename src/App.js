@@ -1,5 +1,5 @@
 import './App.css';
-import { CurrencyCalculatorWCounter } from './components/CurrencyCalculatorWCounter';
+import { CurrencyCalculatorWCounter } from './components/CurrencyCalculatorWCounter/CurrencyCalculatorWCounter';
  
 
 
