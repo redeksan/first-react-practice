@@ -36,12 +36,15 @@ export const CurrencyCalculatorWCounter = () => {
     const resetCounter = () => setCounter(0)
 
     const handleSubmit = () =>{
-        const calculationResult = counter / currencyData![firstSelectedValue] * currencyData![secondSelectedValue]
-        const displayResult = Number.isFinite(calculationResult) && calculationResult !== 0 
-            ? Math.round(calculationResult * 1000) / 1000 
-            : 'submit currency and amount' 
-        setResult(displayResult.toString())
-        // console.log(counter , currencyData[firstSelectedValue] , currencyData[secondSelectedValue], calculationResult,displayResult)
+        if (currencyData !== undefined) {
+            const calculationResult = counter / currencyData[firstSelectedValue] * currencyData[secondSelectedValue]
+            const displayResult = Number.isFinite(calculationResult) && calculationResult !== 0 
+                ? Math.round(calculationResult * 1000) / 1000 
+                : 'submit currency and amount' 
+            setResult(displayResult.toString())
+            // console.log(counter , currencyData[firstSelectedValue] , currencyData[secondSelectedValue], calculationResult,displayResult)
+        } else console.log('We fucked up =(')
+        
     }
 
     return (
