@@ -1,5 +1,6 @@
 import { Dropdown } from "./Dropdown"
 import { useState , useEffect } from "react"
+import "../../styles/CurrencyCalculatorWCounter.css"
 
 const URL = 'https://api.apilayer.com/fixer/latest?'
 

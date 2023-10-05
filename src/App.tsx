@@ -1,4 +1,4 @@
-import './App.css';
+
 import { CurrencyCalculatorWCounter } from './components/CurrencyCalculatorWCounter/CurrencyCalculatorWCounter';
  
 
