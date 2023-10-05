@@ -4,6 +4,7 @@ import { useState , useEffect } from "react"
 const URL = 'https://api.apilayer.com/fixer/latest?'
 
 
+
 export const CurrencyCalculatorWCounter = () => {
     
     const [counter, setCounter] = useState(0)
@@ -18,6 +19,7 @@ export const CurrencyCalculatorWCounter = () => {
         await fetch(URL, {headers:{"apikey": "eYPUhfzOKmtJku8WjHnGkbATlPxn7PoV"}})
             .then(response => response.json())
             .then(response =>  {setCurrencyNames(Object.keys(response.rates)) 
+                console.log(response.rates)
                 return response    })
             .then(response => setCurrencyData(response.rates))
             .catch(error => console.log("error") + error)           
@@ -28,16 +30,16 @@ export const CurrencyCalculatorWCounter = () => {
     }, [])
 
 
-    const updateCounter = (counterAdjustment) =>
+    const updateCounter = (counterAdjustment : number) =>
     setCounter(currentCounter => currentCounter + counterAdjustment > 0 ? currentCounter + counterAdjustment : 0)
     const resetCounter = () => setCounter(0)
 
     const handleSubmit = () =>{
-        const calculationResult = counter / currencyData[firstSelectedValue] * currencyData[secondSelectedValue]
-        const displayResult = Number.isFinite(calculationResult) & calculationResult !== 0 
+        const calculationResult = counter / currencyData![firstSelectedValue] * currencyData![secondSelectedValue]
+        const displayResult = Number.isFinite(calculationResult) && calculationResult !== 0 
             ? Math.round(calculationResult * 1000) / 1000 
             : 'submit currency and amount' 
-        setResult(displayResult)
+        setResult(displayResult.toString())
         // console.log(counter , currencyData[firstSelectedValue] , currencyData[secondSelectedValue], calculationResult,displayResult)
     }
 
@@ -66,9 +68,7 @@ export const CurrencyCalculatorWCounter = () => {
                 <div className="dropdown-box-header">
                     <h4>Select currency</h4>
                 </div>   
-                {/* <span>From:</span> */}
                 <Dropdown currencyNames={currencyNames} setSelectedValue={setFirstSelectedValue}/> 
-                {/* <span>To:</span> */}
                 <Dropdown currencyNames={currencyNames} setSelectedValue={setSecondSelectedValue}/>
                 <button onClick={handleSubmit}>Submit</button>   
             </div>

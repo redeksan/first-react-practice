@@ -8,7 +8,7 @@ function App() {
   
   return (
     <div className="App">
-      <CurrencyCalculatorWCounter className="currency-box"/>
+      <CurrencyCalculatorWCounter />
     </div>
   );
 }
