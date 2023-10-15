@@ -1,0 +1,6 @@
+.header-box {
+  display: flex;
+  height: 100px;
+  background: green;
+  gap: 0.6rem;
+}
