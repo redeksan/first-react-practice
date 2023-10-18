@@ -1,5 +1,4 @@
-import { useEffect } from 'react'
-import '../styles/Header.css'
+import '../../styles/Header.css'
 
 interface HeaderProps {
   userNickname: string

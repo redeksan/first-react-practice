@@ -1,6 +1,4 @@
-import { useState, ChangeEvent, useEffect, FormEvent } from 'react'
-
-// import type { UserType } from './LoginForm.tsx'
+import { ChangeEvent } from 'react'
 
 type UserType = {
   nickname: string
@@ -11,7 +9,7 @@ type UserType = {
 }
 
 interface InputFormProps {
-  type?: string
+  type: string
   title: string
   user: UserType
   setUser: React.Dispatch<React.SetStateAction<UserType>>

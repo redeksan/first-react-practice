@@ -1,6 +1,5 @@
 import '../../styles/LoginForm.css'
-import { useState, ChangeEvent, useEffect, FormEvent } from 'react'
-import { DO_NOT_USE_OR_YOU_WILL_BE_FIRED_EXPERIMENTAL_FORM_ACTIONS } from 'react'
+import { useState, FormEvent } from 'react'
 import InputForm from './InputForm'
 import LoginFormModal from './LoginFormModal'
 
@@ -11,11 +10,6 @@ const PASSWORWD_REGEX =
 const DATE_REGEX =
   /^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/
 
-interface LoginFormProps {
-  setUsetNickname: React.Dispatch<React.SetStateAction<string>>
-  setIsLogedIn: React.Dispatch<React.SetStateAction<boolean>>
-}
-
 type UserType = {
   nickname: string
   firstName: string
@@ -24,7 +18,10 @@ type UserType = {
   password: string
 }
 
-// export type { UserType }
+interface LoginFormProps {
+  setUsetNickname: React.Dispatch<React.SetStateAction<string>>
+  setIsLogedIn: React.Dispatch<React.SetStateAction<boolean>>
+}
 
 const LoginForm = (props: LoginFormProps) => {
   const [user, setUser] = useState<UserType>({

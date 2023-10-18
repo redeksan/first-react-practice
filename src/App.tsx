@@ -1,5 +1,5 @@
 import { CurrencyCalculatorWCounter } from './components/CurrencyCalculatorWCounter/CurrencyCalculatorWCounter'
-import Header from './components/Header'
+import Header from './components/Header/Header'
 import LoginForm from './components/LoginForm/LoginForm'
 import { useState } from 'react'
 
